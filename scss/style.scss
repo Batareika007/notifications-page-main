@@ -1,8 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap");
+@import "colors";
 @import "mixins";
 @import "normalize";
-@import 'global';
+@import "global";
 
+body {
+	font-family: "Plus Jakarta Sans", sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+
+	background: $mainBgColor;
+}
 
 .container {
-  @include container(1440px, 1.5%)
+	@include container(730px, 1.5%);
+}
+
+main {
+	margin: 4rem 0;
+	background-color: $white;
+	padding: 2rem;
+	border-radius: 0.5rem;
+}
+
+.header {
+	margin-bottom: 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	&__left {
+		display: flex;
+		gap: 0.7rem;
+		align-items: center;
+	}
+	&__num {
+		font-weight: 800;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: white;
+		background-color: $blue;
+		border-radius: 0.4rem;
+		line-height: 150%;
+		padding: 0 0.7rem;
+	}
+	&__btn {
+		letter-spacing: -0.01em;
+		font-size: 100%;
+    cursor: pointer;
+    &:hover{
+      color: $blue;
+    }
+	}
+	h1 {
+		font-size: 1.5rem;
+	}
+}
+
+.cards {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  &__image-shess{
+    
+    img{
+      border-radius: 8px;
+      max-width:50px;
+      border: 3px solid transparent;
+      &:hover{
+        border: 3px solid $notigicationBgColor;
+
+      }
+    }
+  }
+  cursor: pointer;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	&__inner {
+		display: grid;
+		grid-template-columns: 50px auto;
+		grid-template-rows: auto auto;
+		grid-template-areas:
+			"img content"
+			"img text";
+		gap: 0 1rem;
+	}
+	&__img {
+		grid-area: img;
+	}
+	&__content {
+		grid-area: content;
+		display: flex;
+		flex-direction: column;
+		padding-top: 0.1rem;
+		position: relative;
+	}
+	&__text {
+    grid-area: text;
+    &.active{
+      cursor: pointer;
+      color: $textColor;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid $dateTextColor;
+      &:hover{
+        background-color: $msgBgColorHover;
+        border-color: transparent;
+      }
+    }
+	}
+	&.unreed {
+		background-color: $mainBgColor;
+		.user__status {
+			margin-left: 5px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			span {
+				position: relative;
+				top: -2px;
+				background-color: $red;
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+			}
+		}
+	}
+}
+
+.user {
+	div:not(:last-child) {
+		display: inline;
+	}
+	&__name {
+    cursor: pointer;
+		font-weight: 800;
+		color: $userNameColor;
+    &:hover{
+      color: $blue;
+    }
+	}
+
+	&__action {
+		color: $textColor;
+	}
+	&__title {
+    cursor: pointer;
+		color: $textColor;
+		font-weight: 800;
+    &:hover{
+      color: $blue;
+    }
+	}
+
+	&__date {
+		margin-top: 0.5rem;
+		color: $dateTextColor;
+	}
+}
+
+footer{
+  padding-bottom: 2rem;
+}
+
+
+@media screen and (max-width:425px) {
+  .main{
+    padding: 1rem;
+  }
 }
