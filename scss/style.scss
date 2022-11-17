@@ -73,6 +73,7 @@ main {
       border-radius: 8px;
       max-width:50px;
       border: 3px solid transparent;
+      height: 50px;
       &:hover{
         border: 3px solid $notigicationBgColor;
 
@@ -93,6 +94,9 @@ main {
 	}
 	&__img {
 		grid-area: img;
+    img{
+      height: 50px;
+    }
 	}
 	&__content {
 		grid-area: content;

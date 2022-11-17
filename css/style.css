@@ -537,6 +537,7 @@ main {
   border-radius: 8px;
   max-width: 50px;
   border: 3px solid transparent;
+  height: 50px;
 }
 .card__image-shess img:hover {
   border: 3px solid hsl(211deg, 68%, 94%);
@@ -550,6 +551,9 @@ main {
 }
 .card__img {
   grid-area: img;
+}
+.card__img img {
+  height: 50px;
 }
 .card__content {
   grid-area: content;
